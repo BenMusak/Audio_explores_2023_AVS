@@ -1,0 +1,4 @@
+Training accuracy 0.7789598108747045
+Validation accuracy 0.6857142857142857
+MB: 17.796187
+Computation time seconds for one prediction: 0.002992868423461914
