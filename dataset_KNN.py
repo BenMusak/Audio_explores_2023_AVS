@@ -47,7 +47,7 @@ def split_dataset(X, y, training_ratio, validation_ratio, test_ratio):
     print('Validation samples:', val_spectrograms.shape[0])
     print('Test samples:', test_spectrograms.shape[0])
     
-    return train_spectrograms, train_labels, test_spectrograms, test_labels
+    return train_spectrograms, train_labels, test_spectrograms, test_labels, val_spectrograms, val_labels
 
 
 def scale_data(X_train, X_test):
@@ -106,9 +106,9 @@ def visualize_MFCCs_Mel(MFCCs, Mel, sr):
 def test_model_dataset(data_path, label_path, training_ratio, validation_ratio, test_ratio):
     X, y = load_data(data_path, label_path)
     mfccs = convert_to_mfcc(X)
-    X_train, X_test, y_train, y_test = split_dataset(mfccs, y, training_ratio, validation_ratio, test_ratio)
+    X_train, X_test, y_train, y_test, x_val, y_val = split_dataset(mfccs, y, training_ratio, validation_ratio, test_ratio)
 
-    return X_train, X_test, y_train, y_test
+    return X_train, X_test, y_train, y_test, x_val, y_val
 
 
 def create_dataset(train_path, train_label_path, test_path):
